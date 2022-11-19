@@ -1,0 +1,27 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    color: black;
+}
+
+select {
+    text-align: center;
+    width: 16rem;
+    padding: .5rem .1rem;
+}
+
+label {
+    margin: 1rem 0 .3rem 0;
+    font-weight: bold;
+}
+
+.disabled {
+    pointer-events: none;
+    color: gray;
+    background-color: lightgray;
+    display: hidden;
+}
