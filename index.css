@@ -13,7 +13,6 @@ body, html {
     color: black;
     margin: 0;
     box-sizing: border-box;
-    font-family: monospace, 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
 }
 
 .title {
