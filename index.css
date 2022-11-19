@@ -2,21 +2,46 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #fee6ce;
+    width: 70vw;
+    margin: 1em auto;
+    padding: .5em;
+    border-radius: 10px;
 }
 
-body {
+body, html {
     color: black;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace, 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
+}
+
+.title {
+    padding: 0 .5em;
+    text-align: center;
+    font-family: 'Lancelot', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 select {
     text-align: center;
     width: 16rem;
     padding: .5rem .1rem;
+    cursor: pointer;
+    border: 2px solid #fee6ce;
+    border-radius: 5px;
+}
+
+select:focus,
+option:focus,
+select:hover {
+    border: 2px solid #8c2d04;
 }
 
 label {
     margin: 1rem 0 .3rem 0;
     font-weight: bold;
+    text-align: center;
+    padding: 0 .5em;
 }
 
 .disabled {
@@ -24,4 +49,29 @@ label {
     color: gray;
     background-color: lightgray;
     display: hidden;
+}
+
+h3 {
+    margin-bottom: 0;
+    text-align: center;
+    padding: 0 .5em;
+}
+
+.cook-time {
+    background: #8c2d04;
+    padding: .5em 1em;
+    margin-top: .2em;
+    color: #fff5eb;
+    text-align: center;
+}
+
+.directions {
+    text-align: center;
+    width: 70%;
+    max-width: 400px;
+}
+
+.note {
+    font-size: small;
+    color: #d94801;
 }

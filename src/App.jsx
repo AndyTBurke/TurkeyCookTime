@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Directions from './Directions'
 
 function App() {
 
@@ -67,7 +68,6 @@ function App() {
 
   function setCookTime(method, stuffed, frozen, weight, prep) {
     if (method === "Oven-Roasted") {
-      console.log(prep)
       let newCookTime = (1/1.5) * weight ** (2/3)
       if (frozen) {newCookTime = newCookTime * 1.5}
       if (stuffed) {newCookTime += .5}
@@ -85,7 +85,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>How long will my turkey take to cook?</h1>
+      <h1 className='title'>How long will my turkey take to cook? 🦃 </h1>
       <label htmlFor="turkey-weight">How much does your turkey weigh?</label>
       <select
         id="turkey-weight" 
@@ -130,8 +130,12 @@ function App() {
         <option value={true}>Frozen</option>
         <option value={false}>Not frozen</option>
       </select>
-      <h2>Approximate cook time{turkeyParameters.method === "Oven-Roasted" ? " at 350°F" : ""}:</h2>
+      <h3>Approximate cook time{turkeyParameters.method === "Oven-Roasted" ? " at 350°F" : ""}:</h3>
       <h2 className='cook-time'>{Math.floor(turkeyParameters.cookTime)} Hours and {Math.floor((turkeyParameters.cookTime * 60) % 60)} Minutes</h2>
+      <Directions 
+        method={turkeyParameters.method}
+        stuffed={turkeyParameters.stuffed}
+      />
     </div>
   )
 }
