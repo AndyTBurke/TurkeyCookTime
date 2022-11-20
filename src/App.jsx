@@ -25,7 +25,7 @@ function App() {
       ...prevState,
       method: newMethod,
       cookTime: setCookTime(newMethod, prevState.stuffed, prevState.frozen, prevState.weight, prevState.prep),
-      prep: newMethod !== "Oven-Roasted" ? "Whole" : prevState.prep,
+      prep: newMethod === "Oven-Roasted" || newMethod === "Smoked" ? prevState.prep : "Whole",
       stuffed: newMethod !== "Oven-Roasted" ? false : prevState.stuffed,
       frozen: newMethod !== "Oven-Roasted" ? false : prevState.frozen
     }))
@@ -82,7 +82,10 @@ function App() {
       return weight * (1/6)
     }
     if (method === "Smoked") {
-      return weight * 0.55
+      let newCookTime = weight * 0.55
+      if (prep === "Spatchcocked") {newCookTime =  newCookTime * .6}
+      if (prep === "Deconstructed") {newCookTime =  newCookTime * .5}
+      return newCookTime
     }
   }
 
@@ -105,7 +108,7 @@ function App() {
       </select>
       <label htmlFor="turkey-prep">Roasted whole, spatchcocked, or fully deconstructed?</label>
       <select
-        className={turkeyParameters.method !== "Oven-Roasted" ? "disabled" : ""}
+        className={turkeyParameters.method === "Oven-Roasted" || turkeyParameters.method === "Smoked" ? "" : "disabled"}
         id="turkey-prep"
         onChange={(event) => setPrep(event.target.value)} 
         value={turkeyParameters.prep}
