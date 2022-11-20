@@ -14,10 +14,10 @@ function App() {
 
   const [turkeyParameters, setTurkeyParameters] = useState(defaultState)
 
-  const cookingMethods = ["Oven-Roasted", "Deep-Fried", "Air-Fried"]
+  const cookingMethods = ["Oven-Roasted", "Deep-Fried", "Air-Fried", "Smoked"]
   const cookingMethodsOptions = cookingMethods.map(method => <option key={method} value={method}>{method}</option>)
 
-  const weightOptions = new Array(17).fill(0).map((weight, weightIndex) => weightIndex + 8)
+  const weightOptions = new Array(18).fill(0).map((weight, weightIndex) => weightIndex + 8)
     .map(weight => <option key={weight} value={weight}>{weight} lbs.</option>)
 
   function setMethod(newMethod) {
@@ -80,6 +80,9 @@ function App() {
     }
     if (method === "Air-Fried") {
       return weight * (1/6)
+    }
+    if (method === "Smoked") {
+      return weight * 0.55
     }
   }
 

@@ -23,6 +23,12 @@ export default function Directions(props) {
             Be sure to check the temperature of the deepest part of 
             the breast and thigh.`)
         }
+        if (props.method == "Smoked") {
+            setDirections(`Estimate based on smoking temp of 240°F. The USDA recommends 
+            cooking your turkey to an internal temperature of 165°F.
+            Be sure to check the temperature of the deepest part of 
+            the breast and thigh.`)
+        }
     }
 
     useEffect(getDirections)
